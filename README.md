@@ -72,6 +72,8 @@ The framework implementation is adapted from [Unsupervised Learning of Robust Sp
 
 The GeomFmaps implementation follows [GeomFmaps-pytorch](https://github.com/pvnieo/GeomFmaps_pytorch/tree/master): A minimalist pytorch implementation of: "[Deep Geometric Functional Maps: Robust Feature Learning for Shape Correspondence](https://arxiv.org/pdf/2003.14286.pdf)".
 
+We additionally include adaptation for [ZoomOut: Spectral Upsampling for Efficient Shape Correspondence](https://github.com/llorz/SGA19_zoomOut)
+
 We thank the original authors for their contributions to this code base.
 
 <!-- : [Nickolas Sharp](https://github.com/nmwsharp/), [Florine Hartwig](https://github.com/flrneha) and [Dongliang Cao](https://github.com/dongliangcao), -->

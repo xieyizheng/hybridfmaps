@@ -76,7 +76,7 @@ class Hybrid_GeomFmaps_Model(BaseModel):
         elas_evecs_x_a = torch.diag(sqrt_elas_mass_x_a) @ elas_evecs_x_a
         elas_evecs_y_a = torch.diag(sqrt_elas_mass_x_a) @ elas_evecs_y_a
         # get elas C_gt
-        elas_C_gt = torch.inverse(elas_M1k) @ torch.linalg.lstsq(elas_evecs_x_a, elas_evecs_y_a).solution.t() @ elas_M2k
+        elas_C_gt = torch.inverse(elas_M2k) @ torch.linalg.lstsq(elas_evecs_x_a, elas_evecs_y_a).solution.t() @ elas_M1k
         elas_C_gt = elas_C_gt.unsqueeze(0)
 
         self.loss_metrics['l_elas_gt_fmap'] = self.losses['elas_gt_loss'](elas_Cxy, elas_C_gt, elas_sqrtMk_x, elas_sqrtMk_y) 
