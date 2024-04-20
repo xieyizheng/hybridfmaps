@@ -1,0 +1,71 @@
+backend: dp
+type: GeomFmaps_Model
+num_gpu: auto
+manual_seed: 1234
+path:
+  resume_state:
+
+# datasets
+datasets:
+  train_dataset:
+    name: ScapeTrain
+    type: PairScapeDataset
+    phase: train
+    data_root: ../data/SCAPE_r
+    return_evecs: true
+    return_faces: true
+    num_evecs: 30
+    return_corr: true
+    return_dist: false
+  test_dataset:
+    name: ScapeTest
+    type: PairScapeDataset
+    phase: test
+    data_root: ../data/SCAPE_r
+    return_evecs: true
+    return_faces: true
+    num_evecs: 30
+    return_corr: true
+    return_dist: true
+  batch_size: 1
+  num_worker: 12
+
+# network setting
+networks:
+  feature_extractor:
+    type: DiffusionNet
+    in_channels: 128
+    out_channels: 256
+    cache_dir: ../data/SCAPE_r/diffusion
+    input_type: wks
+  fmap_net:
+    type: StandardFMNet
+    bidirectional: false
+train:
+  total_epochs: 20
+  optims:
+    feature_extractor:
+      type: Adam
+      lr: 1.0e-3
+  schedulers:
+    feature_extractor:
+      type: StepLR
+      step_size: 10
+      gamma: 0.1
+
+  losses:
+    gt_loss:
+      type: SquaredFrobeniusLoss
+      loss_weight: 1.0
+val:
+  val_freq: 4000
+  metrics:
+    geo_error:
+      type: calculate_geodesic_error
+    plot_pck:
+      type: plot_pck
+
+# log setting
+logger:
+  print_freq: 20
+  save_checkpoint_freq: 4000

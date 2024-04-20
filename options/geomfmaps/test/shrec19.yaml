@@ -1,0 +1,41 @@
+# general setting
+backend: dp # DataParallel
+type: GeomFmaps_Model
+num_gpu: auto
+manual_seed: 1234
+path:
+  resume_state: checkpoints/geomfmaps/faust_scape.pth
+  resume: false
+
+# datasets
+datasets:
+  test_dataset:
+    name: Shrec19Val
+    type: PairShrec19Dataset
+    phase: test
+    data_root: ../data/SHREC19_r
+    return_evecs: true
+    return_faces: true
+    num_evecs: 30
+    return_dist: true
+
+    return_corr: true
+networks:
+  feature_extractor:
+    type: DiffusionNet
+    in_channels: 128
+    out_channels: 256
+    cache_dir: ../data/SHREC19_r/diffusion
+    input_type: wks
+  fmap_net:
+    type: StandardFMNet
+    bidirectional: false
+val:
+  save_geo_errors: true
+  metrics:
+    geo_error:
+      type: calculate_geodesic_error
+    plot_pck_per_pair:
+      type: plot_pck_multiple
+    plot_pck:
+      type: plot_pck

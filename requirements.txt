@@ -1,0 +1,8 @@
+trimesh
+networkx
+robust-laplacian
+potpourri3d
+open3d
+h5py
+wandb
+libigl

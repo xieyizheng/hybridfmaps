@@ -1,0 +1,54 @@
+# general setting
+backend: dp # DataParallel
+type: Hybrid_ULRSSM_Model
+num_gpu: auto
+manual_seed: 1234
+n_lb: 140
+n_elas: 60
+non-isometric: false
+partial: false
+visualize: true
+
+# path
+path:
+  resume_state: checkpoints/hybrid_ulrssm/dt4d.pth
+  resume: false
+
+# datasets
+datasets:
+  test_dataset:
+    name: Val
+    type: PairDT4DDataset
+    phase: test
+    data_root: ../data/DT4D_r/
+    inter_class: false
+    return_evecs: true
+    return_faces: true
+    num_evecs: 200
+    return_corr: true
+    return_dist: true
+
+    return_elas_evecs: true
+    bending_weight: 0.01
+networks:
+  feature_extractor:
+    type: DiffusionNet
+    in_channels: 128
+    out_channels: 256
+    cache_dir: ../data/DT4D_r/diffusion
+    input_type: wks
+  permutation:
+    type: Similarity
+    tau: 0.07
+    hard: true
+
+# validation setting
+val:
+  save_geo_errors: true
+  metrics:
+    geo_error:
+      type: calculate_geodesic_error
+    plot_pck_per_pair:
+      type: plot_pck_multiple
+    plot_pck:
+      type: plot_pck

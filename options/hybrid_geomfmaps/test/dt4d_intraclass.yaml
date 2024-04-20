@@ -1,0 +1,53 @@
+# general setting
+backend: dp # DataParallel
+type: Hybrid_GeomFmaps_Model
+num_gpu: auto
+manual_seed: 1234
+n_lb: 20
+n_elas: 10
+visualize: true
+
+# path
+path:
+  resume_state: checkpoints/hybrid_geomfmaps/dt4d.pth
+  resume: false
+
+# datasets
+datasets:
+  test_dataset:
+    name: Val
+    type: PairDT4DDataset
+    phase: test
+    data_root: ../data/DT4D_r/
+    inter_class: false
+    return_evecs: true
+    return_faces: true
+    num_evecs: 30
+    return_corr: true
+    return_dist: true
+
+    return_elas_evecs: true
+    bending_weight: 0.01
+networks:
+  feature_extractor:
+    type: DiffusionNet
+    in_channels: 128
+    out_channels: 256
+    cache_dir: ../data/DT4D_r/diffusion
+    input_type: wks
+  fmap_net:
+    type: StandardFMNet
+    bidirectional: false
+  expanded_fmap_net:
+    type: ExpandedStandardFMNet
+    lmbda: 0.0005
+    bidirectional: false
+val:
+  save_geo_errors: true
+  metrics:
+    geo_error:
+      type: calculate_geodesic_error
+    plot_pck_per_pair:
+      type: plot_pck_multiple
+    plot_pck:
+      type: plot_pck
