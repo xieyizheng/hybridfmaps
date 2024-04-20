@@ -1,3 +1,6 @@
+torch
+torchvision
+torchaudio
 trimesh
 networkx
 robust-laplacian
@@ -6,4 +9,3 @@ open3d
 h5py
 wandb
 libigl
-tqdm

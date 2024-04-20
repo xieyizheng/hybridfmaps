@@ -8,7 +8,6 @@
 ```bash 
 conda create -n hybridfmaps python=3.8 # create new virtual environment
 conda activate hybridfmaps
-conda install pytorch cudatoolkit -c pytorch # install pytorch
 pip install -r requirements.txt # install other necessary libraries via pip
 ```
 In addition, this code uses python bindings for an implementation of the Discrete Shell Energy. 
