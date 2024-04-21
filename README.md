@@ -65,11 +65,11 @@ python texture_transfer.py
 You can find all pre-trained models in [checkpoints](checkpoints) for reproducibility.
 
 ## Acknowledgement
-The implementation of DiffusionNet is based on [the official implementation](https://github.com/nmwsharp/diffusion-net).
+The framework implementation is adapted from [Unsupervised Learning of Robust Spectral Shape Matching](https://github.com/dongliangcao/Unsupervised-Learning-of-Robust-Spectral-Shape-Matching/).
 
 The implementation of Elastic Basis is adapted from [An Elastic Basis for Spectral Shape Correspondence](https://github.com/flrneha/ElasticBasisForSpectralMatching/).
 
-The framework implementation is adapted from [Unsupervised Learning of Robust Spectral Shape Matching](https://github.com/dongliangcao/Unsupervised-Learning-of-Robust-Spectral-Shape-Matching/).
+The implementation of DiffusionNet is based on [the official implementation](https://github.com/nmwsharp/diffusion-net).
 
 The GeomFmaps implementation follows [GeomFmaps-pytorch](https://github.com/pvnieo/GeomFmaps_pytorch/tree/master): A minimalist pytorch implementation of: "[Deep Geometric Functional Maps: Robust Feature Learning for Shape Correspondence](https://arxiv.org/pdf/2003.14286.pdf)".
 
