@@ -86,7 +86,7 @@ def train_pipeline(root_path):
         # save the ts in the log folder for later archiving
         with open(osp.join(opt['path']['log'], 'ts.txt'), 'w') as f:
             f.write(ts)
-        wandb.init(project='hybridfmaps', config=opt, sync_tensorboard=True, name=name, anonymous='allow')
+        wandb.init(project='hybridfmaps', config=opt, sync_tensorboard=True, name=name, mode="offline") # set mode to online to sync to wandb
 
     # WARNING: should not use get_root_logger in the above codes, including the called functions
     # Otherwise the logger will not be properly initialized

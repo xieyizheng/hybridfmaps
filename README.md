@@ -6,9 +6,7 @@
 
 ## Installation
 ```bash 
-conda create -n hybridfmaps python=3.8 # create new virtual environment
-conda activate hybridfmaps
-pip install -r requirements.txt # install other necessary libraries via pip
+conda env create --name hybridfmaps -f environment.yml
 ```
 In addition, this code uses python bindings for an implementation of the Discrete Shell Energy. 
 
