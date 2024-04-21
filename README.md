@@ -5,8 +5,12 @@
 ![img](figures/teaser.jpg)
 
 ## Installation
+Our code relies on PyTorch, along with several other common libraries. They can often be installed manually easily. However, for convenience, we provide a conda environment file for easy setup:
 ```bash 
+# create new virtual environment
 conda env create --name hybridfmaps -f environment.yml
+
+conda activate hybridfmaps
 ```
 In addition, this code uses python bindings for an implementation of the Discrete Shell Energy. 
 
