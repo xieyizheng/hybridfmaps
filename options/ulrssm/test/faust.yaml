@@ -40,8 +40,11 @@ networks:
 
 # validation setting
 val:
+  save_geo_errors: true
   metrics:
     geo_error:
       type: calculate_geodesic_error
+    plot_pck_per_pair:
+      type: plot_pck_multiple
     plot_pck:
       type: plot_pck

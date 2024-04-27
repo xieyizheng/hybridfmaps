@@ -67,9 +67,7 @@ train:
 
 # validation setting
 val:
-  fast_eval: true
-  fast_eval_iter: 20
-  # save_geo_errors: true
+  save_geo_errors: true
   metrics:
     geo_error:
       type: calculate_geodesic_error
