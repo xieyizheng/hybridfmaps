@@ -5,7 +5,7 @@
 ![img](figures/teaser.jpg)
 
 ## Installation
-Our code relies on PyTorch, along with several other common libraries. They can often be installed manually easily. However, for convenience, we provide a conda environment file for easy setup:
+Our code relies on PyTorch, along with several other common libraries. We recommend to use our provided conda environment file for compatibility:
 ```bash 
 # create new virtual environment
 conda env create --name hybridfmaps -f environment.yml
@@ -86,8 +86,9 @@ Please cite our paper when using the code. You can use the following bibtex
   title={Hybrid Functional Maps for Crease-Aware Non-Isometric Shape Matching},
   author={Bastian, Lennart and Xie, Yizheng and Navab, Nassir and L{\"a}hner, Zorah},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2024},
-  note={Accepted for publication}
+  pages={3313--3323},
+  month={June},
+  year={2024}
 }
 
 ```
