@@ -137,3 +137,6 @@ results/
 
 # wandb
 wandb/
+
+# polyscope
+*.ini

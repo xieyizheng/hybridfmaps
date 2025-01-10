@@ -61,6 +61,17 @@ An example of texture transfer is provided in *[texture_transfer.py](texture_tra
 python texture_transfer.py
 ``` -->
 
+## Visualization
+Make sure to install the latest [polyscope](https://github.com/nmwsharp/polyscope) to allow headless rendering.
+```
+pip uninstall polyscope
+pip install git+https://github.com/nmwsharp/polyscope-py.git
+```
+To visualize the final results.
+```python
+python visualize.py --opt options/hybrid_ulrssm/test/smal.yaml
+```
+The visualized images will be saved in [results](results) folder.
 ## Pretrained models
 You can find all pre-trained models in [checkpoints](checkpoints) for reproducibility.
 
