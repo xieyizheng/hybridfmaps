@@ -62,10 +62,10 @@ python texture_transfer.py
 ``` -->
 
 ## Visualization
-Make sure to install the latest [polyscope](https://github.com/nmwsharp/polyscope) to allow headless rendering.
+Make sure to install the latest [polyscope](https://github.com/nmwsharp/polyscope-py) to allow headless rendering.
 ```
 pip uninstall polyscope
-pip install git+https://github.com/nmwsharp/polyscope-py.git
+pip install git+https://github.com/nmwsharp/polyscope-py.git@102c57f90d8aeb73b869d4dbf2f48f9466e08c00
 ```
 To visualize the final results.
 ```python
